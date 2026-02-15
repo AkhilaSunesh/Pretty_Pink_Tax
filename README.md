@@ -1,171 +1,227 @@
-# Pretty Pink Tax - Setup & Installation
+# 🎀 Pretty_Pink_Tax
 
-## What This Extension Does 🎀
-Detects the "Pink Tax" - where identical products are sold at different prices based on gender targeting. When you browse women's products on Flipkart, it instantly finds cheaper men's alternatives and shows you the savings.
+<p align="center">
+  <img width="1012" height="451" alt="Pretty Pink Tax Banner" src="https://github.com/user-attachments/assets/e5a764a6-3623-402c-8060-3a97d4726f1a" />
+</p>
 
 ---
 
-## Installation Steps
+## 🎯 Basic Details
 
-### 1. Start the Backend Server
+### 👩‍💻 Individual
+- **Name:** Akhila Sunesh  
+- **Institution:** Saintgits College of Engineering  
+
+### 🔗 Hosted Project Link
+👉 https://github.com/AkhilaSunesh/Pretty_Pink_Tax  
+*(Replace with Chrome Web Store link if published)*
+
+---
+
+## 📌 Project Description
+
+**Pretty_Pink_Tax** is a smart Chrome Extension that acts as your personal shopping advocate using the **“Elle-gorithm.”**
+
+It detects when you're viewing a *Pink Tax* product — items marketed to women that cost more than identical men’s versions — on e-commerce platforms like Flipkart.
+
+It instantly suggests the cheaper equivalent and lets you **“Switch & Save”** in one click.
+
+---
+
+## 🚨 Problem Statement
+
+The **Pink Tax** is a discriminatory pricing practice where products marketed to women cost significantly more than identical products marketed to men.
+
+Example:
+- Pink razor: ₹299  
+- Blue razor: ₹199  
+- Same blades. Same function. Higher price.
+
+Most shoppers:
+- Don’t realize the price difference  
+- Don’t manually search for the men’s version  
+- Fall victim to branding and packaging  
+
+---
+
+## 💡 The Solution — “Elle-gorithm”
+
+Our solution is a **Hybrid Analysis Engine** built into a Chrome Extension.
+
+### 🔍 How It Works
+
+1. **Real-Time Scraping**
+   - Scans product title and price while you browse.
+
+2. **Hybrid Detection System**
+   - **Static Safety Net:**  
+     Instantly detects known Pink Tax offenders from a local database.
+   - **Dynamic Live Search:**  
+     Queries Google Shopping via SerpApi to find the cheapest male equivalent in real-time.
+
+3. **Instant Verdict**
+   - Shows savings amount  
+   - Displays percentage difference  
+   - Provides a direct “Switch & Save” link  
+
+---
+
+## 🛠 Technical Details
+
+### 💻 Technologies Used
+
+**Frontend**
+- JavaScript (Chrome Extension – Manifest V3)
+- HTML/CSS
+
+**Backend**
+- Python
+- Flask
+- flask-cors
+- google-search-results
+
+**API**
+- SerpApi (Google Shopping API)
+
+**Tools**
+- VS Code
+- Git
+- Chrome Developer Mode
+
+---
+
+## ✨ Features
+
+- ✅ Real-Time Pink Tax Detection  
+- ✅ Dynamic Live Price Comparison  
+- ✅ “Switch & Save” Smart Redirect  
+- ✅ Side-by-Side Functional Comparison  
+- ✅ Advocacy Mode for essential products  
+- ✅ Hybrid Static + Dynamic Matching  
+
+---
+## Screenshots
+<img width="516" height="261" alt="image" src="https://github.com/user-attachments/assets/90960fcc-7bfd-44ad-bc58-3df75b93e699" />
+
+<img width="420" height="545" alt="image" src="https://github.com/user-attachments/assets/3563fd41-e259-40cd-8a78-1691e3210bc6" />
+
+<img width="412" height="368" alt="image" src="https://github.com/user-attachments/assets/ac798d88-de61-4746-9738-c587fd69d350" />
+
+## ⚙️ Implementation
+
+### 1️⃣ Backend Setup
+
 ```bash
+git clone https://github.com/AkhilaSunesh/Pretty_Pink_Tax
+cd backend
+pip install flask flask-cors google-search-results
+```
+Add your SerpApi key inside server.py:
+
+SERPAPI_KEY = "YOUR_KEY_HERE"
+Start the backend server:
+
 python server.py
-```
-This starts a Flask server on `http://localhost:5000` that performs real-time product searches on Flipkart.
+Server runs at:
 
-**Requirements:**
-```bash
-pip install flask flask-cors requests beautifulsoup4
-```
+http://127.0.0.1:5000
+### 2️⃣ Chrome Extension Setup
+Open Chrome
 
-### 2. Load the Extension in Chrome
-1. Go to `chrome://extensions`
-2. Enable **Developer mode** (top right)
-3. Click **Load unpacked**
-4. Select the `Pretty_Pink_Tax` folder
-5. Extension loaded! ✅
+Go to chrome://extensions/
 
-### 3. Test It
-1. Go to Flipkart: https://www.flipkart.com
-2. Search for "women razor" or "women deodorant"
-3. Wait 2-3 seconds...
-4. See the Elle-gorithm overlay! 💅
+Enable Developer Mode
 
----
+Click Load Unpacked
 
-## How It Works
+Select the extension folder
 
-### Real-Time Search Flow:
-```
-User visits women's product page
-           ↓
-Extension detects women's product title
-           ↓
-Extension calls server API with product name
-           ↓
-Server searches Flipkart for men's alternative
-           ↓
-Server returns cheapest match with exact link
-           ↓
-Extension shows price comparison overlay
-           ↓
-User clicks link → bought at cheaper price ✅
-```
+### ▶️ How to Use
+Open Flipkart.com
 
-### Fallback Mechanism:
-If server is offline or search fails → Uses hardcoded database (still works!)
+Search for:
 
----
+“Venus Razor”
 
-## File Structure
+“Nivea Women Deodorant”
 
-```
-Pretty_Pink_Tax/
-├── content.js          # Main extension logic (runs on Flipkart)
-├── manifest.json       # Extension metadata
-├── products.js         # Hardcoded product database
-├── styles.css          # UI styling
-├── server.py           # Backend (real-time search)
-└── README.md           # This file
-```
+The extension will detect pricing differences automatically.
 
----
+## 🏗 System Architecture
+Chrome Extension (Client)
+        ↓
+Flask Backend (API Server)
+        ↓
+SerpApi (Google Shopping API)
+        ↓
+Returns cheapest male equivalent
+        ↓
+Extension displays savings verdict
+### 🔄 Application Workflow
+User visits product
+      ↓
+Content script extracts title + price
+      ↓
+Check static database
+      ↓
+Query SerpApi
+      ↓
+Backend computes savings
+      ↓
+Popup displays Switch & Save option
+### 📡 API Documentation
+Base URL
+http://127.0.0.1:5000
+Endpoint
+GET /find-match
+Parameters
+title (string)
 
-## Current Capabilities
+price (integer)
 
-### ✅ Works For:
-- Women's razors → Men's razors
-- Women's deodorant → Men's deodorant
-- Women's shampoo → Men's shampoo
-
-### ✅ Features:
-- Real-time Flipkart search
-- Exact product links
-- Price comparison
-- Savings calculation
-- Product images
-- Direct "Buy" links
-
-### ⚠️ Limitations:
-- Requires Flask server running locally
-- Only works on Flipkart.com
-- Scraping dependent on Flipkart HTML structure
-- May need updates if Flipkart changes page layout
-
----
-
-## Customization
-
-### Add More Products:
-Edit `server.py` → `PRODUCT_MAPPINGS` dictionary:
-```python
-'skincare': {
-    'women': ['women', 'ladies', 'feminine'],
-    'men_search': 'men skincare',
-    'keywords': ['cream', 'lotion']
+Example Response
+{
+  "found": true,
+  "match": {
+    "name": "Gillette Mach 3 Men's Razor",
+    "price": 199,
+    "link": "https://flipkart.com/search?q=...",
+    "image": "https://image-url.com/...",
+    "source": "Flipkart"
+  },
+  "savings": 100,
+  "savings_percent": 33.5
 }
-```
+## 🎥 Project Demo
+https://screenrec.com/share/ZaeDBKNrIj
 
-### Adjust Price Range:
-In `server.py`, change `if price < 50 or price > 5000:`
+# This demo showcases:
+- Problem Statement
+- Solution
 
-### Change Search Results:
-Edit the number of products checked: `products[:10]` → `products[:20]`
 
----
+Live detection
 
-## Troubleshooting
+API-based alternative lookup
 
-### Extension Not Showing Overlay?
-1. Check server is running: `python server.py`
-2. Check you're on Flipkart.com
-3. Check browser console for errors (F12)
-4. Reload page
+Real savings calculation
 
-### Server Connection Failed?
-1. Install dependencies: `pip install flask flask-cors requests beautifulsoup4`
-2. Make sure port 5000 is free
-3. Check firewall settings
+“Switch & Save” functionality
 
-### Wrong Products Showing?
-Flipkart's HTML structure changes frequently. Might need to update CSS selectors in `server.py`.
+## 🤖 AI Tools Used
+Tool: Gemini (Google)
 
----
+Used For:
+Boilerplate generation
 
-## Features Explained 🎨
+Flask backend structure
 
-### Elle-gorithm Interface:
-- 💅 **Pink Badge**: Indicates Pink Tax detected
-- ⚡ **LIVE SEARCH**: Shows result came from real-time search
-- 💾 **Savings %**: How much cheaper the alternative is
-- 🔗 **Direct Link**: Goes straight to Flipkart product page
-- 👁️ **View Details**: Shows detailed comparison modal
 
-### Advocacy Mode:
-For sanitary products (napkins, pads, tampons) → Shows "Luxury Tax" message instead of alternative products, because these shouldn't have gender pricing.
+Final testing & reliability implementation
 
----
 
-## Legal & Ethical Notes ⚖️
+📜 License
+This project is licensed under the MIT License.
 
-- Educational tool to expose pricing discrimination
-- Respects Flipkart's terms (uses standard browser requests)
-- No data collection or storage
-- User data stays private
-- Encourages conscious consumerism
-
----
-
-## Future Updates 🚀
-
-Potential improvements:
-- Support for Amazon, eBay, other e-commerce sites
-- Mobile app version
-- Browser notifications
-- Price history tracking
-- Social sharing stats
-
----
-
-**Status**: Production Ready ✅  
-**Last Updated**: February 14, 2026
+❤️ Built at TinkerHub
+Because fairness shouldn't cost extra.
