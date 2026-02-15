@@ -1,0 +1,128 @@
+/* styles.css - The Polish */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+#elle-woods-overlay {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 2147483647; /* Top of everything */
+    font-family: 'Poppins', sans-serif;
+    animation: slideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy enter */
+}
+
+.elle-card {
+    background: #fff0f5; /* Light pink background */
+    width: 340px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(255, 20, 147, 0.25);
+    border: 3px solid #ff69b4;
+    overflow: hidden;
+}
+
+.elle-header {
+    background: #ff1493; /* Deep Pink */
+    color: white;
+    padding: 12px 20px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+.close-x { cursor: pointer; font-size: 20px; }
+
+.elle-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.elle-badge {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.elle-badge.pink { background: #ffe4e1; color: #ff1493; border: 1px solid #ff1493; }
+.elle-badge.red { background: #ffe4e1; color: #d32f2f; border: 1px solid #d32f2f; }
+
+.elle-comparison {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.elle-price-box {
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    width: 40%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.elle-price-box.blue { border: 2px solid #2196f3; background: #e3f2fd; }
+.elle-price-box .label { display: block; font-size: 10px; color: #888; text-transform: uppercase; }
+.elle-price-box .price { display: block; font-size: 18px; font-weight: 700; color: #333; }
+
+.elle-vs { font-weight: bold; color: #ccc; font-size: 12px; }
+
+.elle-savings {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ff1493;
+    margin-bottom: 15px;
+}
+
+.elle-tip {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 15px;
+    border-left: 4px solid #ff69b4;
+    text-align: left;
+}
+
+.elle-match-info {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.elle-btn-primary {
+    display: block;
+    width: 100%;
+    background: #2196f3; /* Generic Blue */
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.elle-btn-primary:hover { transform: scale(1.02); }
+
+.elle-btn-secondary {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 12px;
+    margin-top: 10px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(150%) skewX(-10deg); opacity: 0; }
+    to { transform: translateX(0) skewX(0); opacity: 1; }
+}
